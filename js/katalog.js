@@ -4,72 +4,7 @@
 // =========================================================
 
 // 1. Data katalog: array yang berisi objek-objek produk
-const katalog = [
-  {
-    id: 1,
-    nama: "Kain Motif Gigi Haruan",
-    kategori: "kain",
-    harga: 185000,
-    gambar: "img/gigi-haruan.svg",
-    deskripsi: "Kain katun 2 meter bermotif zig-zag menyerupai gigi ikan haruan.",
-  },
-  {
-    id: 2,
-    nama: "Kain Motif Kambang Kacang",
-    kategori: "kain",
-    harga: 175000,
-    gambar: "img/kambang-kacang.svg",
-    deskripsi: "Motif bunga kacang yang melambangkan keakraban dan kerukunan.",
-  },
-  {
-    id: 3,
-    nama: "Selendang Iris Pudak",
-    kategori: "aksesoris",
-    harga: 120000,
-    gambar: "img/iris-pudak.svg",
-    deskripsi: "Selendang ringan bermotif irisan daun pudak (pandan).",
-  },
-  {
-    id: 4,
-    nama: "Kain Motif Naga Balimbur",
-    kategori: "kain",
-    harga: 210000,
-    gambar: "img/naga-balimbur.svg",
-    deskripsi: "Kain bermotif naga yang melambangkan kekuatan dan keberanian.",
-  },
-  {
-    id: 5,
-    nama: "Kain Motif Ombak Sinapur Karang",
-    kategori: "kain",
-    harga: 205000,
-    gambar: "img/ombak-sinapur-karang.svg",
-    deskripsi: "Motif ombak dan karang yang menggambarkan kehidupan pesisir.",
-  },
-  {
-    id: 6,
-    nama: "Kemeja Bayam Raja",
-    kategori: "busana",
-    harga: 240000,
-    gambar: "img/bayam-raja.svg",
-    deskripsi: "Kemeja pria bermotif daun bayam yang melambangkan kemakmuran.",
-  },
-  {
-    id: 7,
-    nama: "Gamis Ombak Sinapur Karang",
-    kategori: "busana",
-    harga: 320000,
-    gambar: "img/ombak-sinapur-karang.svg",
-    deskripsi: "Gamis wanita bermotif ombak sinapur karang yang elegan.",
-  },
-  {
-    id: 8,
-    nama: "Tas Naga Balimbur",
-    kategori: "aksesoris",
-    harga: 150000,
-    gambar: "img/naga-balimbur.svg",
-    deskripsi: "Tas tangan bermotif naga balimbur dengan jahitan tradisional.",
-  },
-];
+let katalog = [];
 
 // 2. Ambil elemen-elemen HTML yang akan dimanipulasi
 const daftarKatalog = document.querySelector("#daftar-katalog");
@@ -80,11 +15,11 @@ const infoJumlah = document.querySelector("#info-jumlah");
 let kategoriAktif = "semua";
 // 4. Mengubah angka menjadi format Rupiah, contoh: 185000 -> "Rp 185.000"
 function formatRupiah(angka) {
-return new Intl.NumberFormat("id-ID", {
-style: "currency",
-currency: "IDR",
-minimumFractionDigits: 0,
-}).format(angka);
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+  }).format(angka);
 }
 
 //5. Membuat elemen <article> untuk satu produk
@@ -122,44 +57,62 @@ function buatKartu(produk) {
 }
 // 6. Menampilkan sekumpulan produk ke dalam #daftar-katalog
 function tampilkanKatalog(daftarProduk) {
-daftarKatalog.replaceChildren(); // kosongkan isi sebelumnya
-if (daftarProduk.length === 0) {
-const kosong = document.createElement("p");
-kosong.textContent = "Produk tidak ditemukan. Coba kata kunci lain.";
-daftarKatalog.append(kosong);
-}
-daftarProduk.forEach((produk) => {
-daftarKatalog.append(buatKartu(produk));
-});
-infoJumlah.textContent = `Menampilkan ${daftarProduk.length} dari ${katalog.length} produk`;
+  daftarKatalog.replaceChildren(); // kosongkan isi sebelumnya
+  if (daftarProduk.length === 0) {
+    const kosong = document.createElement("p");
+    kosong.textContent = "Produk tidak ditemukan. Coba kata kunci lain.";
+    daftarKatalog.append(kosong);
+  }
+  daftarProduk.forEach((produk) => {
+    daftarKatalog.append(buatKartu(produk));
+  });
+  infoJumlah.textContent = `Menampilkan ${daftarProduk.length} dari ${katalog.length} produk`;
 }
 // 7. Menyaring katalog berdasarkan kata kunci DAN kategori aktif
 function saringKatalog() {
-const kataKunci = inputCari.value.trim().toLowerCase();
-const hasil = katalog.filter((produk) => {
-const cocokKategori = kategoriAktif === "semua" || produk.kategori === kategoriAktif;
-const cocokKata =
-produk.nama.toLowerCase().includes(kataKunci) ||
-produk.deskripsi.toLowerCase().includes(kataKunci);
-return cocokKategori && cocokKata;
-});
-tampilkanKatalog(hasil);
+  const kataKunci = inputCari.value.trim().toLowerCase();
+  const hasil = katalog.filter((produk) => {
+    const cocokKategori =
+      kategoriAktif === "semua" || produk.kategori === kategoriAktif;
+    const cocokKata =
+      produk.nama.toLowerCase().includes(kataKunci) ||
+      produk.deskripsi.toLowerCase().includes(kataKunci);
+    return cocokKategori && cocokKata;
+  });
+  tampilkanKatalog(hasil);
 }
 // 8. Event: setiap kali pengguna mengetik di kotak pencarian
 inputCari.addEventListener("input", saringKatalog);
 // 9. Event: klik tombol filter kategori
 tombolFilter.forEach((tombol) => {
-tombol.addEventListener("click", () => {
-kategoriAktif = tombol.dataset.kategori;
-// perbarui tampilan tombol: hanya satu yang aktif
-tombolFilter.forEach((t) => {
-t.classList.remove("aktif");
-t.setAttribute("aria-pressed", "false");
+  tombol.addEventListener("click", () => {
+    kategoriAktif = tombol.dataset.kategori;
+    // perbarui tampilan tombol: hanya satu yang aktif
+    tombolFilter.forEach((t) => {
+      t.classList.remove("aktif");
+      t.setAttribute("aria-pressed", "false");
+    });
+    tombol.classList.add("aktif");
+    tombol.setAttribute("aria-pressed", "true");
+    saringKatalog();
+  });
 });
-tombol.classList.add("aktif");
-tombol.setAttribute("aria-pressed", "true");
-saringKatalog();
-});
-});
-// 10. Tampilkan semua produk ketika halaman pertama kali dibuka
-tampilkanKatalog(katalog);
+// 10. Memuat data katalog dari file JSON secara asinkron
+async function muatKatalog() {
+  infoJumlah.textContent = "Memuat katalog...";
+
+  try {
+    const respons = await fetch("data/katalog.json");
+    if (!respons.ok) {
+      throw new Error(`Gagal memuat katalog (HTTP ${respons.status})`);
+    }
+    katalog = await respons.json();
+    tampilkanKatalog(katalog);
+  } catch (galat) {
+    console.error(galat);
+    infoJumlah.textContent =
+      "Maaf, katalog gagal dimuat. Periksa koneksi Anda lalu muat ulang halaman.";
+  }
+}
+
+muatKatalog();
