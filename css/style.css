@@ -53,9 +53,11 @@ img {
   max-width: 100%;
   height: auto;
 }
+
 a {
   color: var(--warna-utama);
 }
+
 /* Penanda fokus untuk pengguna keyboard — JANGAN dihapus */
 a:focus-visible,
 button:focus-visible,
@@ -72,22 +74,26 @@ textarea:focus-visible {
   top: 0;
   z-index: 10;
   display: flex;
-  flex-direction: column; /* HP: logo di atas menu */
+  flex-direction: column;
+  /* HP: logo di atas menu */
   align-items: center;
   gap: 0.5rem;
   padding: 1rem;
   background-color: var(--warna-utama);
   color: #ffffff;
 }
+
 .logo {
   margin: 0;
   font-size: 1.4rem;
   font-weight: 700;
 }
+
 .logo a {
   color: inherit;
   text-decoration: none;
 }
+
 .menu {
   display: flex;
   flex-wrap: wrap;
@@ -97,6 +103,7 @@ textarea:focus-visible {
   padding: 0;
   list-style: none;
 }
+
 .menu a {
   display: block;
   padding: 0.35rem 0.75rem;
@@ -104,29 +111,36 @@ textarea:focus-visible {
   color: #ffffff;
   text-decoration: none;
 }
+
 .menu a:hover,
 .menu a[aria-current="page"] {
   background-color: var(--warna-utama-gelap);
 }
+
 .header-situs a:focus-visible {
-  outline-color: #ffffff; /* fokus putih agar terlihat di latar header yang gelap */
+  outline-color: #ffffff;
+  /* fokus putih agar terlihat di latar header yang gelap */
 }
+
 /* ---------- 4. Hero ---------- */
 .hero {
   padding: 4rem 1rem;
   text-align: center;
   background: linear-gradient(135deg, var(--warna-krem), #f6d7a7);
 }
+
 .hero h1 {
   margin: 0 0 1rem;
   font-size: clamp(1.8rem, 5vw, 3rem);
   line-height: 1.2;
   color: var(--warna-utama);
 }
+
 .hero p {
   max-width: 40rem;
   margin: 0 auto 1.5rem;
 }
+
 /* ---------- 5. Tombol ---------- */
 .tombol {
   display: inline-block;
@@ -143,27 +157,32 @@ textarea:focus-visible {
     background-color 0.2s ease,
     transform 0.2s ease;
 }
+
 .tombol:hover {
   background-color: var(--warna-utama-gelap);
   transform: translateY(-2px);
 }
+
 /* ---------- 6. Bagian (section) umum ---------- */
 .bagian {
   max-width: var(--lebar-maks);
   margin-inline: auto;
   padding: 3rem 1rem;
 }
+
 .bagian h1,
 .bagian h2 {
   margin-top: 0;
   color: var(--warna-utama);
 }
+
 /* ---------- 7. Katalog (CSS Grid) ---------- */
 .katalog-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 1.5rem;
 }
+
 .kartu {
   display: flex;
   flex-direction: column;
@@ -173,35 +192,44 @@ textarea:focus-visible {
   box-shadow: var(--bayangan);
   transition: transform 0.2s ease;
 }
+
 .kartu:hover {
   transform: translateY(-4px);
 }
+
 .kartu img {
   width: 100%;
   aspect-ratio: 3 / 2;
   object-fit: cover;
 }
+
 .kartu-isi {
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* isi kartu mengisi sisa tinggi */
+  flex-grow: 1;
+  /* isi kartu mengisi sisa tinggi */
   padding: 1rem;
 }
+
 .kartu h3 {
   margin: 0 0 0.5rem;
   font-size: 1.15rem;
 }
+
 .kartu p {
   margin: 0 0 0.75rem;
   color: var(--warna-teks-lembut);
 }
+
 .kartu .harga {
-  margin-top: auto; /* harga selalu di bagian bawah kartu */
+  margin-top: auto;
+  /* harga selalu di bagian bawah kartu */
   margin-bottom: 0;
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--warna-utama);
 }
+
 /* ---------- 8. Tabel ---------- */
 table {
   width: 100%;
@@ -209,17 +237,20 @@ table {
   background-color: var(--warna-kartu);
   box-shadow: var(--bayangan);
 }
+
 caption {
   margin-bottom: 0.5rem;
   font-weight: 600;
   text-align: left;
 }
+
 th,
 td {
   padding: 0.75rem 1rem;
   border-bottom: 1px solid #eeeeee;
   text-align: left;
 }
+
 thead th {
   background-color: var(--warna-utama);
   color: #ffffff;
@@ -235,15 +266,18 @@ thead th {
   background-color: var(--warna-kartu);
   box-shadow: var(--bayangan);
 }
+
 .kolom {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
 }
+
 label,
 legend {
   font-weight: 600;
 }
+
 input,
 select,
 textarea {
@@ -253,6 +287,7 @@ textarea {
   border-radius: 8px;
   font: inherit;
 }
+
 fieldset {
   display: flex;
   flex-direction: column;
@@ -260,6 +295,7 @@ fieldset {
   border: 1px solid #dddddd;
   border-radius: 8px;
 }
+
 fieldset label,
 .cek {
   display: flex;
@@ -267,10 +303,12 @@ fieldset label,
   gap: 0.5rem;
   font-weight: 400;
 }
+
 input[type="radio"],
 input[type="checkbox"] {
   width: auto;
 }
+
 /* ---------- 10. Footer ---------- */
 .footer-situs {
   padding: 2rem 1rem;
@@ -279,26 +317,129 @@ input[type="checkbox"] {
   font-size: 0.9rem;
   text-align: center;
 }
+
 .footer-situs p {
   margin: 0.25rem 0;
 }
+
 /* ---------- 11. Responsif: tablet & desktop ---------- */
 @media (min-width: 768px) {
   .header-situs {
-    flex-direction: row; /* logo kiri, menu kanan */
+    flex-direction: row;
+    /* logo kiri, menu kanan */
     justify-content: space-between;
     padding-inline: 2rem;
   }
+
   .hero {
     padding: 6rem 2rem;
   }
 }
+
 /* Hormati pengguna yang tidak ingin banyak animasi */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
+
   * {
     transition: none !important;
   }
+}
+
+/* ---------- 12. Komponen interaktif (Modul 3) ---------- */
+.kontrol-katalog {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tombol-filter {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--warna-utama);
+  border-radius: 999px;
+  background-color: transparent;
+  color: var(--warna-utama);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tombol-filter:hover,
+.tombol-filter.aktif {
+  background-color: var(--warna-utama);
+  color: #ffffff;
+}
+
+.info-jumlah {
+  color: var(--warna-teks-lembut);
+  font-size: 0.95rem;
+}
+
+.label-kategori {
+  align-self: flex-start;
+  margin-bottom: 0.5rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background-color: var(--warna-krem);
+  color: #6a4a00;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.pesan-error {
+  margin: 0;
+  color: #b00020;
+  font-size: 0.9rem;
+}
+
+.pesan-error:empty {
+  display: none;
+  /* sembunyikan jika belum ada pesan */
+}
+
+[aria-invalid="true"] {
+  border-color: #b00020;
+  background-color: #fff5f6;
+}
+
+.hasil-pesan {
+  max-width: 40rem;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-left: 6px solid var(--warna-aksen);
+  border-radius: var(--radius);
+  background-color: var(--warna-kartu);
+  box-shadow: var(--bayangan);
+}
+
+.hasil-pesan h2 {
+  margin-top: 0;
+}
+
+.hasil-pesan pre {
+  white-space: pre-wrap;
+  font-family: inherit;
+}
+
+@media (min-width: 768px) {
+  .kontrol-katalog {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.kontrol-katalog .kolom {
+  flex: 1;
+  max-width: 22rem;
 }
