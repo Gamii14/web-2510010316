@@ -1,2 +1,16 @@
-# web1-2510010316
-Proyek Praktium Pemrograman Web 1 UNISKA - Akhmad Didi Riady
+# Sasirangan Banua
+
+Situs web katalog UMKM kain sasirangan (fiktif) khas Banjarmasin.
+
+**Demo langsung:**
+
+## Fitur
+
+- Katalog dimuat dari data/katalog.json menggunakan Fetch API
+- Pencarian dan filter kategori
+- Formulir pemesanan tervalidasi dengan ringkasan ke WhatsApp
+- Widget jadwal salat Banjarmasin dari API MyQuran
+
+## Penggunaan AI
+
+Dicatat di LOG-AI.md

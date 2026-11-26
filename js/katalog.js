@@ -3,7 +3,8 @@
 // Praktikum Pemrograman Web 1 · Sasirangan Banua
 // =========================================================
 
-// 1. Data katalog: array yang berisi objek-objek produk
+// 1. Data katalog kini disimpan di data/katalog.json.
+//    Awalnya kosong, lalu diisi oleh fungsi muatKatalog().
 let katalog = [];
 
 // 2. Ambil elemen-elemen HTML yang akan dimanipulasi
