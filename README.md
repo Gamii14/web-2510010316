@@ -2,7 +2,7 @@
 
 Situs web katalog UMKM kain sasirangan (fiktif) khas Banjarmasin.
 
-**Demo langsung:**
+**Demo langsung:** https://gamii14.github.io/web-2510010316/
 
 ## Fitur
 
